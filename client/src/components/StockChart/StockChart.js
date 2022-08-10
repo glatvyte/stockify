@@ -1,37 +1,25 @@
+import ReactDOM from "react-dom";
 import "./StockChart.css";
 
-const StockChart = ({ stockCandles }) => {
-  return (
-    // <p>StockChart</p>
-    <div className="ui dimmer modals visible active">
-      <div class="ui modal">
-        <i class="close icon"></i>
-        <div class="header">Profile Picture</div>
-        <div class="image content">
-          <div class="ui medium image"></div>
-          <div class="description">
-            <div class="ui header">
-              We've auto-chosen a profile image for you.
-            </div>
-            <p>
-              We've grabbed the following image from the{" "}
-              <a href="https://www.gravatar.com" target="_blank">
-                gravatar
-              </a>{" "}
-              image associated with your registered e-mail address.
-            </p>
-            <p>Is it okay to use this photo?</p>
-          </div>
+const StockChart = ({ stockCandles, onModalClose }) => {
+  return ReactDOM.createPortal(
+    <div className="ui dimmer modals visible active popup-container">
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="ui standart modal visible active"
+      >
+        <div className="header">Stock Candles</div>
+        <div className="stock-container">
+          <p>POP UP VEIKIA</p>
         </div>
-        <div class="actions">
-          <div class="ui black deny button">Nope</div>
-          <div class="ui positive right labeled icon button">
-            Yep, that's me
-            <i class="checkmark icon"></i>
-          </div>
+        <div className="actions">
+          <button onClick={onModalClose} className="ui button negative">
+            Close
+          </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.querySelector("#modal")
   );
 };
 

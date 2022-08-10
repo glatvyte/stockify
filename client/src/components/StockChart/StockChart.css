@@ -1,0 +1,4 @@
+.popup-container {
+  display: flex;
+  position: fixed !important;
+}

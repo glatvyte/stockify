@@ -1,0 +1,6 @@
+#modal .stock-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  position: relative;
+}

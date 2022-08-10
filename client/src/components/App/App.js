@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import * as finnhub from "finnhub";
 import Filter from "../Filter/Filter";
 import Results from "../Results/Results";
+import StockChart from "../StockChart/StockChart";
 import "./App.css";
 
 const personalApiKey = process.env.REACT_APP_API_KEY;
@@ -47,11 +48,24 @@ const App = () => {
         dateTo,
         (error, data, response) => {
           //LOGIKA KAI NIEKO NEGAUNAM / ERROR HANDLINIMAS
-          // console.log(error, "error");
-          // console.log(data, "data");
-          // console.log(response, "response");
           setStockCandles(data);
         }
+      );
+    }
+  };
+
+  const isEmptyObject = (obj) => {
+    return Object.keys(obj).length === 0 && obj.constructor === Object;
+  };
+
+  const onModalClose = () => {
+    setStockCandles({});
+  };
+
+  const renderStockChart = () => {
+    if (!isEmptyObject(stockCandles)) {
+      return (
+        <StockChart stockCandles={stockCandles} onModalClose={onModalClose} />
       );
     }
   };
@@ -64,6 +78,7 @@ const App = () => {
     <div className="App">
       <Filter onInputValueChange={setInputValue} />
       <Results companyList={companyList} onCompanySelect={onCompanySelect} />
+      {renderStockChart()}
     </div>
   );
 };
