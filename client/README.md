@@ -1,3 +1,8 @@
+# Api Key access:
+
+- API Key is needed to access API. Find information on how to get personal API Key here: https://finnhub.io/docs/api/introduction.
+- Create .env file in root folder and place your generated API Key there.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
