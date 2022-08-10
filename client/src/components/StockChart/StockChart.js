@@ -2,26 +2,36 @@ import "./StockChart.css";
 
 const StockChart = ({ stockCandles }) => {
   return (
-    <p>StockChart</p>
-    // <div className="ui modal">
-    //   <div className="header">Header</div>
-    //   <div className="image content">
-    //     <img className="image" />
-    //     <div className="description">
-    //       <p>
-    //         Lorem Ipsum is simply dummy text of the printing and typesetting
-    //         industry. Lorem Ipsum has been the industry's standard dummy text
-    //         ever since the 1500s, when an unknown printer took a galley of type
-    //         and scrambled it to make a type specimen book. It has survived not
-    //         only five centuries, but also the leap into electronic typesetting,
-    //         remaining essentially unchanged. It was popularised in the 1960s
-    //         with the release of Letraset sheets containing Lorem Ipsum passages,
-    //         and more recently with desktop publishing software like Aldus
-    //         PageMaker including versions of Lorem Ipsum.
-    //       </p>
-    //     </div>
-    //   </div>
-    // </div>
+    // <p>StockChart</p>
+    <div className="ui dimmer modals visible active">
+      <div class="ui modal">
+        <i class="close icon"></i>
+        <div class="header">Profile Picture</div>
+        <div class="image content">
+          <div class="ui medium image"></div>
+          <div class="description">
+            <div class="ui header">
+              We've auto-chosen a profile image for you.
+            </div>
+            <p>
+              We've grabbed the following image from the{" "}
+              <a href="https://www.gravatar.com" target="_blank">
+                gravatar
+              </a>{" "}
+              image associated with your registered e-mail address.
+            </p>
+            <p>Is it okay to use this photo?</p>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui black deny button">Nope</div>
+          <div class="ui positive right labeled icon button">
+            Yep, that's me
+            <i class="checkmark icon"></i>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -4,7 +4,7 @@ import StockChart from "../StockChart/StockChart";
 
 //Company carde susigaudyt nuleistuos duomenis per propsus ir panaudoti tuos propsus JSX'e, kuri stilizuota pasiimsi is semantic ui
 
-const Results = ({ companyList, onCompanySelect, stockCandles }) => {
+const Results = ({ companyList, onCompanySelect }) => {
   const renderCompanyList = companyList.map((company, i) => {
     return (
       <CompanyCard
@@ -15,19 +15,7 @@ const Results = ({ companyList, onCompanySelect, stockCandles }) => {
     );
   });
 
-  const renderStockChart = () => {
-    console.log(stockCandles, "stockCandles");
-    if (!!Object.keys(stockCandles).length) {
-      return <StockChart stockCandles={stockCandles} />;
-    }
-  };
-
-  return (
-    <div className="results">
-      <div className="ui relaxed divided list">{renderCompanyList}</div>
-      {renderStockChart()}
-    </div>
-  );
+  return <div className="ui relaxed divided list">{renderCompanyList}</div>;
 };
 
 export default Results;

@@ -63,11 +63,7 @@ const App = () => {
   return (
     <div className="App">
       <Filter onInputValueChange={setInputValue} />
-      <Results
-        companyList={companyList}
-        onCompanySelect={onCompanySelect}
-        stockCandles={stockCandles}
-      />
+      <Results companyList={companyList} onCompanySelect={onCompanySelect} />
     </div>
   );
 };
