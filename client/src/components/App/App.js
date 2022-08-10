@@ -25,9 +25,7 @@ const App = () => {
       finnhubClient.companyProfile2(
         { symbol: inputValue },
         (error, data, response) => {
-          // console.log(error, "error");
-          // console.log(data, "data");
-          // console.log(response, "response");
+          //ERROR HANDLE
           if (typeof data === Array) {
             console.log("Arrayjus");
             setCompanyList(data);
