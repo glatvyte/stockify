@@ -6,24 +6,28 @@ import StockChart from "../StockChart/StockChart";
 
 const Results = ({ companyList, onCompanySelect, stockCandles }) => {
   const renderCompanyList = companyList.map((company, i) => {
-    const renderChart = () => {
-      if (stockCandles) {
-        return <StockChart stockCandles={stockCandles} />;
-      }
-    };
     return (
-      <div className="results">
-        <CompanyCard
-          key={i}
-          onCompanySelect={onCompanySelect}
-          company={company}
-        />
-        {renderChart}
-      </div>
+      <CompanyCard
+        key={i}
+        onCompanySelect={onCompanySelect}
+        company={company}
+      />
     );
   });
 
-  return <div className="ui relaxed divided list">{renderCompanyList}</div>;
+  const renderStockChart = () => {
+    console.log(stockCandles, "stockCandles");
+    if (!!Object.keys(stockCandles).length) {
+      return <StockChart stockCandles={stockCandles} />;
+    }
+  };
+
+  return (
+    <div className="results">
+      <div className="ui relaxed divided list">{renderCompanyList}</div>
+      {renderStockChart()}
+    </div>
+  );
 };
 
 export default Results;

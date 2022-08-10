@@ -1,11 +1,10 @@
 import "./CompanyCard.css";
 
-const CompanyCard = ({ company, onCompanySelect }) => {
+const CompanyCard = ({ onCompanySelect, company }) => {
   return (
     <div onClick={() => onCompanySelect(company)} className="ui card">
       <div className="content">
         <div className="header">{company.name}</div>
-
         <div className="description">
           <p>
             Country: {company.country}
