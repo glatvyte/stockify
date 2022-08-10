@@ -1,7 +1,7 @@
-import "./StockCharts.css";
+import "./StockChart.css";
 
-function StockCharts() {
-  return <div>StockCharts</div>;
-}
+const StockChart = ({ stockCandles }) => {
+  return <div>StockChart</div>;
+};
 
-export default StockCharts;
+export default StockChart;

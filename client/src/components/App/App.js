@@ -4,9 +4,6 @@ import Filter from "../Filter/Filter";
 import Results from "../Results/Results";
 import "./App.css";
 
-//Sukurk Results componenta
-//sukurti validationa Filtre
-//Uzsaugoti company profile data
 const personalApiKey = process.env.REACT_APP_API_KEY;
 const api_key = finnhub.ApiClient.instance.authentications["api_key"];
 api_key.apiKey = personalApiKey;
@@ -15,15 +12,20 @@ const finnhubClient = new finnhub.DefaultApi();
 const App = () => {
   const [inputValue, setInputValue] = useState("");
   const [companyList, setCompanyList] = useState([]);
+  const [dateFrom, setDateFrom] = useState(
+    Math.floor((Date.now() - 7 * 24 * 60 * 60) / 1000)
+  );
+  const [dateTo, setDateTo] = useState(Math.floor(Date.now() / 1000));
+  const [stockCandles, setStockCandles] = useState({});
 
   const search = () => {
     if (inputValue) {
       finnhubClient.companyProfile2(
         { symbol: inputValue },
         (error, data, response) => {
-          console.log(error, "error");
-          console.log(data, "data");
-          console.log(response, "response");
+          // console.log(error, "error");
+          // console.log(data, "data");
+          // console.log(response, "response");
           if (typeof data === Array) {
             console.log("Arrayjus");
             setCompanyList(data);
@@ -36,6 +38,24 @@ const App = () => {
     }
   };
 
+  const onCompanySelect = (company) => {
+    if (company) {
+      finnhubClient.stockCandles(
+        company.ticker,
+        "D",
+        dateFrom,
+        dateTo,
+        (error, data, response) => {
+          //LOGIKA KAI NIEKO NEGAUNAM / ERROR HANDLINIMAS
+          // console.log(error, "error");
+          // console.log(data, "data");
+          // console.log(response, "response");
+          setStockCandles(data);
+        }
+      );
+    }
+  };
+
   useEffect(() => {
     search();
   }, [inputValue]);
@@ -43,8 +63,11 @@ const App = () => {
   return (
     <div className="App">
       <Filter onInputValueChange={setInputValue} />
-      <Results />
-      {companyList[0]?.name}
+      <Results
+        companyList={companyList}
+        onCompanySelect={onCompanySelect}
+        stockCandles={stockCandles}
+      />
     </div>
   );
 };
