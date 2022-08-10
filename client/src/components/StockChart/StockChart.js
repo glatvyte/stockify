@@ -1,7 +1,10 @@
+import { useState } from "react";
 import ReactDOM from "react-dom";
+import SemanticDatepicker from "react-semantic-ui-datepickers";
+import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
 import "./StockChart.css";
 
-const StockChart = ({ stockCandles, onModalClose }) => {
+const StockChart = ({ stockCandles, onModalClose, onChangeDates }) => {
   return ReactDOM.createPortal(
     <div className="ui dimmer modals visible active popup-container">
       <div
@@ -10,7 +13,7 @@ const StockChart = ({ stockCandles, onModalClose }) => {
       >
         <div className="header">Stock Candles</div>
         <div className="stock-container">
-          <p>POP UP VEIKIA</p>
+          <SemanticDatepicker onChange={onChangeDates} type="range" />
         </div>
         <div className="actions">
           <button onClick={onModalClose} className="ui button negative">

@@ -13,6 +13,7 @@ const finnhubClient = new finnhub.DefaultApi();
 const App = () => {
   const [inputValue, setInputValue] = useState("");
   const [companyList, setCompanyList] = useState([]);
+  const [selectedCompany, setSelectedCompany] = useState({});
   const [dateFrom, setDateFrom] = useState(
     Math.floor((Date.now() - 7 * 24 * 60 * 60) / 1000)
   );
@@ -40,13 +41,15 @@ const App = () => {
   };
 
   const onCompanySelect = (company) => {
-    if (company) {
+    if (!isEmptyObject(company)) {
+      setSelectedCompany(company);
       finnhubClient.stockCandles(
         company.ticker,
         "D",
         dateFrom,
         dateTo,
         (error, data, response) => {
+          console.log(data);
           //LOGIKA KAI NIEKO NEGAUNAM / ERROR HANDLINIMAS
           setStockCandles(data);
         }
@@ -60,19 +63,38 @@ const App = () => {
 
   const onModalClose = () => {
     setStockCandles({});
+    setDateFrom(Math.floor((Date.now() - 7 * 24 * 60 * 60) / 1000));
+    setDateTo(Math.floor(Date.now() / 1000));
   };
 
   const renderStockChart = () => {
     if (!isEmptyObject(stockCandles)) {
       return (
-        <StockChart stockCandles={stockCandles} onModalClose={onModalClose} />
+        <StockChart
+          stockCandles={stockCandles}
+          onModalClose={onModalClose}
+          onChangeDates={onChangeDates}
+        />
       );
+    }
+  };
+
+  const onChangeDates = (event, data) => {
+    if (data.value.length === 2) {
+      setDateFrom(Math.floor(new Date(data.value[0]).getTime() / 1000));
+      setDateTo(Math.floor(new Date(data.value[1]).getTime() / 1000));
+      console.log(dateFrom, "dateFrom");
+      console.log(dateTo, "dateTo");
     }
   };
 
   useEffect(() => {
     search();
   }, [inputValue]);
+
+  useEffect(() => {
+    onCompanySelect(selectedCompany);
+  }, [dateTo]);
 
   return (
     <div className="App">
