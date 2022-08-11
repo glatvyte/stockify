@@ -7,12 +7,8 @@ const Results = ({ companyList, onCompanySelect }) => {
   const renderCompanyList = companyList.map((company, i) => {
     return (
       // card className added
-      <div className="card">
-        <CompanyCard
-          key={i}
-          onCompanySelect={onCompanySelect}
-          company={company}
-        />
+      <div key={i} className="card">
+        <CompanyCard onCompanySelect={onCompanySelect} company={company} />
       </div>
     );
   });
