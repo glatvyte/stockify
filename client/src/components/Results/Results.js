@@ -7,15 +7,20 @@ import StockChart from "../StockChart/StockChart";
 const Results = ({ companyList, onCompanySelect }) => {
   const renderCompanyList = companyList.map((company, i) => {
     return (
-      <CompanyCard
-        key={i}
-        onCompanySelect={onCompanySelect}
-        company={company}
-      />
+      // card className added
+      <div className="card">
+        <CompanyCard
+          key={i}
+          onCompanySelect={onCompanySelect}
+          company={company}
+        />
+      </div>
     );
   });
 
-  return <div className="ui relaxed divided list">{renderCompanyList}</div>;
+  return (
+    <div className="ui relaxed divided list card-list">{renderCompanyList}</div>
+  );
 };
 
 export default Results;

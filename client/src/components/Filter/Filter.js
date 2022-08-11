@@ -16,7 +16,9 @@ function Filter({ onTermSubmit, onInputValueChange }) {
       setTerm(e.target.value);
       setError("");
     } else {
-      setError("Please use less than 35 characters");
+      setError(
+        "Only letters including space are allowed. Please use less than 35 characters."
+      );
     }
   };
 
@@ -40,7 +42,7 @@ function Filter({ onTermSubmit, onInputValueChange }) {
                 name="keyword"
                 className="search-bar"
               />
-              <button className="ui button red">Go!</button>
+              <button className="ui button blue">Search</button>
             </div>
           </div>
         </form>

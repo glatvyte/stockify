@@ -3,6 +3,7 @@ import * as finnhub from "finnhub";
 import Filter from "../Filter/Filter";
 import Results from "../Results/Results";
 import StockChart from "../StockChart/StockChart";
+
 import "./App.css";
 
 const personalApiKey = process.env.REACT_APP_API_KEY;
@@ -99,6 +100,12 @@ const App = () => {
       <Filter onInputValueChange={setInputValue} />
       <Results companyList={companyList} onCompanySelect={onCompanySelect} />
       {renderStockChart()}
+      <button
+        //   onClick={() => onShowMockedData(mockedCompany)}
+        className="big ui blue basic button mock-button"
+      >
+        Mock Data
+      </button>
     </div>
   );
 };
