@@ -99,6 +99,12 @@ const App = () => {
     setCompanyList(mockedCompanyData);
   };
 
+  console.log(
+    "Default 7 days ago: ",
+    Math.floor((Date.now() - 7 * 24 * 60 * 60 * 1000) / 1000),
+    new Date(Math.floor((Date.now() - 7 * 24 * 60 * 60 * 1000) / 1000) * 1000)
+  );
+  console.log("Default now: ", Math.floor(Date.now() / 1000), new Date());
   return (
     <div className="App">
       <Filter onInputValueChange={setInputValue} />
