@@ -3,6 +3,7 @@ import * as finnhub from "finnhub";
 import Filter from "../Filter/Filter";
 import Results from "../Results/Results";
 import StockChart from "../StockChart/StockChart";
+import mockedCompanyData from "../../utils/mockData";
 
 import "./App.css";
 
@@ -95,13 +96,17 @@ const App = () => {
     onCompanySelect(selectedCompany);
   }, [dateTo]);
 
+  const showMockData = () => {
+    setCompanyList(mockedCompanyData);
+  };
+
   return (
     <div className="App">
       <Filter onInputValueChange={setInputValue} />
       <Results companyList={companyList} onCompanySelect={onCompanySelect} />
       {renderStockChart()}
       <button
-        //   onClick={() => onShowMockedData(mockedCompany)}
+        onClick={showMockData}
         className="big ui blue basic button mock-button"
       >
         Mock Data

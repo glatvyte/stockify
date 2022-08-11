@@ -1,6 +1,5 @@
 import "./Results.css";
 import CompanyCard from "../CompanyCard/CompanyCard";
-import StockChart from "../StockChart/StockChart";
 
 //Company carde susigaudyt nuleistuos duomenis per propsus ir panaudoti tuos propsus JSX'e, kuri stilizuota pasiimsi is semantic ui
 

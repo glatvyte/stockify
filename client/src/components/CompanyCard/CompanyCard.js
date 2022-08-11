@@ -6,13 +6,13 @@ const CompanyCard = ({ onCompanySelect, company }) => {
       <div onClick={() => onCompanySelect(company)} className="ui fluid card">
         <div className="content">
           <div className="header">{company.name}</div>
-          <div className="description">
+          <div className="description left aligned">
             <p>
               Country: {company.country}
               <br />
               Currency: {company.currency}
               <br />
-              Web Url: {company.weburl}
+              Web Url: <a href={company.weburl}>{company.weburl}</a>
             </p>
           </div>
         </div>
