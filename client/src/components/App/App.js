@@ -105,10 +105,7 @@ const App = () => {
       <Filter onInputValueChange={setInputValue} />
       <Results companyList={companyList} onCompanySelect={onCompanySelect} />
       {renderStockChart()}
-      <button
-        onClick={showMockData}
-        className="big ui blue basic button mock-button"
-      >
+      <button onClick={showMockData} className="ui button red">
         Mock Data
       </button>
     </div>
