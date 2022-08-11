@@ -2,3 +2,7 @@
   display: flex;
   position: fixed !important;
 }
+
+.ui.icon.input {
+  width: 220px;
+}

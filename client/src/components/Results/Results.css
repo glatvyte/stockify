@@ -1,4 +1,4 @@
-.card-list {
+.ui.list.card-list {
   display: grid; /* ijungia grid */
   margin: 25px;
   grid-template-columns: repeat(

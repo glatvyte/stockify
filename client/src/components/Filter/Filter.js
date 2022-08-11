@@ -8,6 +8,7 @@ function Filter({ onTermSubmit, onInputValueChange }) {
   const onSubmit = (event) => {
     event.preventDefault();
     onInputValueChange(term);
+    setTerm("");
   };
 
   const onInputChange = (e) => {

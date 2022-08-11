@@ -17,7 +17,7 @@ const App = () => {
   const [companyList, setCompanyList] = useState([]);
   const [selectedCompany, setSelectedCompany] = useState({});
   const [dateFrom, setDateFrom] = useState(
-    Math.floor((Date.now() - 7 * 24 * 60 * 60) / 1000)
+    Math.floor((Date.now() - 7 * 24 * 60 * 60 * 1000) / 1000)
   );
   const [dateTo, setDateTo] = useState(Math.floor(Date.now() / 1000));
   const [stockCandles, setStockCandles] = useState({});
@@ -59,18 +59,18 @@ const App = () => {
 
   const onModalClose = () => {
     setStockCandles({});
-    setDateFrom(Math.floor((Date.now() - 7 * 24 * 60 * 60) / 1000));
+    setDateFrom(Math.floor((Date.now() - 7 * 24 * 60 * 60 * 1000) / 1000));
     setDateTo(Math.floor(Date.now() / 1000));
   };
 
   const renderStockChart = () => {
     if (!isEmptyObject(stockCandles)) {
-      console.log(stockCandles, "renderinu stockChart");
       return (
         <StockChart
           stockCandles={stockCandles}
           onModalClose={onModalClose}
           onChangeDates={onChangeDates}
+          dates={[new Date(dateFrom * 1000), new Date(dateTo * 1000)]}
         />
       );
     }
