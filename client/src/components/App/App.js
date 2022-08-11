@@ -28,20 +28,16 @@ const App = () => {
         { symbol: inputValue },
         (error, data, response) => {
           //ERROR HANDLE
-          if (typeof data === Array) {
-            console.log("Arrayjus");
-            setCompanyList(data);
-          } else {
-            console.log("vienas tik");
-            setCompanyList([data]);
-          }
+          typeof data === Array ? setCompanyList(data) : setCompanyList([data]);
         }
       );
     }
   };
 
   const onCompanySelect = (company) => {
+    console.log("onCompanySelect callinasi, tikrinsim ar empty");
     if (!isEmptyObject(company)) {
+      console.log("its full");
       setSelectedCompany(company);
       finnhubClient.stockCandles(
         company.ticker,
@@ -69,6 +65,7 @@ const App = () => {
 
   const renderStockChart = () => {
     if (!isEmptyObject(stockCandles)) {
+      console.log(stockCandles, "renderinu stockChart");
       return (
         <StockChart
           stockCandles={stockCandles}
@@ -93,7 +90,9 @@ const App = () => {
   }, [inputValue]);
 
   useEffect(() => {
-    onCompanySelect(selectedCompany);
+    if (!isEmptyObject(stockCandles)) {
+      onCompanySelect(selectedCompany);
+    }
   }, [dateTo]);
 
   const showMockData = () => {
