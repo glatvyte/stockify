@@ -1,9 +1,11 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import * as finnhub from "finnhub";
 import Filter from "../Filter/Filter";
 import Results from "../Results/Results";
 import StockChart from "../StockChart/StockChart";
 import mockedCompanyData from "../../utils/mockData";
+import Strings from "../../utils/strings";
 
 import "./App.css";
 
@@ -34,9 +36,31 @@ const App = () => {
     }
   };
 
+  /////////////////////////
+  // const selectedCompanyLogger = async ({ penis }) => {
+  const selectedCompanyLogger = async (company) => {
+    console.log("selectedCompanyLogger is called");
+    await axios
+      .post(`${Strings.loggerApiUrl}/selectedCompany`, {
+        name: company.name,
+      })
+      .then(
+        () => {
+          console.log("Company name and stock price history logged");
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
+  ////////////////////
+
   const onCompanySelect = (company) => {
     console.log("onCompanySelect callinasi, tikrinsim ar empty");
     if (!isEmptyObject(company)) {
+      //logger
+      selectedCompanyLogger(company);
+      ////////
       console.log("its full");
       setSelectedCompany(company);
       finnhubClient.stockCandles(
@@ -47,6 +71,7 @@ const App = () => {
         (error, data, response) => {
           console.log(data);
           //LOGIKA KAI NIEKO NEGAUNAM / ERROR HANDLINIMAS
+          //logger
           setStockCandles(data);
         }
       );
@@ -70,6 +95,7 @@ const App = () => {
           stockCandles={stockCandles}
           onModalClose={onModalClose}
           onChangeDates={onChangeDates}
+          selectedCompany={selectedCompany}
           dates={[new Date(dateFrom * 1000), new Date(dateTo * 1000)]}
         />
       );

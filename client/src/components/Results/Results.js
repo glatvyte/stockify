@@ -1,8 +1,6 @@
 import "./Results.css";
 import CompanyCard from "../CompanyCard/CompanyCard";
 
-//Company carde susigaudyt nuleistuos duomenis per propsus ir panaudoti tuos propsus JSX'e, kuri stilizuota pasiimsi is semantic ui
-
 const Results = ({ companyList, onCompanySelect }) => {
   const renderCompanyList = companyList.map((company, i) => {
     return (
