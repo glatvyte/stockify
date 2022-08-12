@@ -12,7 +12,14 @@ const CompanyCard = ({ onCompanySelect, company }) => {
               <br />
               Currency: {company.currency}
               <br />
-              Web Url: <a href={company.weburl}>{company.weburl}</a>
+              Web Url:
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={company.weburl}
+              >
+                {company.weburl}
+              </a>
             </p>
           </div>
         </div>

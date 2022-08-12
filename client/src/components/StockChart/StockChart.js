@@ -12,7 +12,13 @@ import SemanticDatepicker from "react-semantic-ui-datepickers";
 import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
 import "./StockChart.css";
 
-const StockChart = ({ stockCandles, onModalClose, onChangeDates, dates }) => {
+const StockChart = ({
+  stockCandles,
+  onModalClose,
+  onChangeDates,
+  dates,
+  selectedCompany,
+}) => {
   console.log(dates);
 
   const transformData = (data) => {
@@ -48,7 +54,9 @@ const StockChart = ({ stockCandles, onModalClose, onChangeDates, dates }) => {
         onClick={(e) => e.stopPropagation()}
         className="ui standart modal visible active"
       >
-        <div className="header">Stock Candles</div>
+        <div className="header">
+          {selectedCompany.name} ({selectedCompany.ticker})
+        </div>
         <div className="stock-container">
           <SemanticDatepicker
             onChange={onChangeDates}
