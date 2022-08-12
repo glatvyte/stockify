@@ -12,14 +12,14 @@ function Filter({ onTermSubmit, onInputValueChange }) {
   };
 
   const onInputChange = (e) => {
-    const re = /^[a-zA-Z\s]*$/;
-    if (e.target.value.length <= 35 && " " && re.test(e.target.value)) {
+    const re = /^[a-zA-Z\s]*$/g;
+    if (!re.test(e.target.value)) {
+      setError("Only letters including space are allowed.");
+    } else if (e.target.value.length > 35) {
+      setError("Please use less than 35 characters.");
+    } else {
       setTerm(e.target.value);
       setError("");
-    } else {
-      setError(
-        "Only letters including space are allowed. Please use less than 35 characters."
-      );
     }
   };
 
