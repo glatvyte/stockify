@@ -37,7 +37,7 @@ function Filter({ onTermSubmit, onInputValueChange }) {
             <div className="ui input action container search-bar">
               <input
                 type="text"
-                value={term}
+                value={term.toUpperCase()}
                 onChange={onInputChange}
                 placeholder="Enter your keywords here..."
                 name="keyword"
