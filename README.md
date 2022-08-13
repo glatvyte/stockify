@@ -43,7 +43,9 @@ Stockify webpage is created with:
 * Semantic UI;
 * Custom styling done with SASS;
 * Diagram done by using [Recharts](https://recharts.org/en-US/) library;
-* "Finnhub" API requires ```finnhub``` library.
+* "Finnhub" APIs: <br/>
+  1. https://finnhub.io/docs/api/company-profile2 - company search by symbol. 
+  2. https://finnhub.io/docs/api/stock-candles - stock price history.
 
 	
 ## Running the project
