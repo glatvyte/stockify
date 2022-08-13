@@ -1,4 +1,4 @@
-import "./CompanyCard.css";
+import "./CompanyCard.scss";
 
 const CompanyCard = ({ onCompanySelect, company }) => {
   return (

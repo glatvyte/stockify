@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Filter.css";
+import "./Filter.scss";
 
 function Filter({ onTermSubmit, onInputValueChange }) {
   const [term, setTerm] = useState("");

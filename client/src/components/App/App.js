@@ -8,7 +8,7 @@ import mockedCompanyData from "../../utils/mockData";
 import Strings from "../../utils/strings";
 import isEmptyObject from "../../utils/helpers";
 
-import "./App.css";
+import "./App.scss";
 
 const personalApiKey = process.env.REACT_APP_API_KEY;
 const api_key = finnhub.ApiClient.instance.authentications["api_key"];

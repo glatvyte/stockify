@@ -1,7 +1,7 @@
 import CompanyCard from "../CompanyCard/CompanyCard";
 import isEmptyObject from "../../utils/helpers";
 import Strings from "../../utils/strings";
-import "./Results.css";
+import "./Results.scss";
 
 const Results = ({ companyList, onCompanySelect, term }) => {
   const renderCompanyList = companyList.map((company, i) => {
