@@ -46,19 +46,19 @@ Stockify webpage is created with:
 #### Front-end
 Inside the ```client``` directory: <br />
 
-```npm install``` <br/>
-```npm start``` <br />
+* ```npm install``` <br/>
+* ```npm start``` <br />
 Open http://localhost:3000 to view in the browser.
 
 
 #### Back-end
-Inside the ```server``` directory and in a separate terminal window:<br/>
-```node index.js``` <br />
-It starts back-end server. <br/>
+Inside the ```server``` directory and in a separate terminal window start back-end server:<br/>
+* ```node index.js``` <br />
+
 
 In order to launch the MongoDB you need to have [MongoDB](https://www.mongodb.com/) installed.<br/>
 In a separate terminal window: <br/>
-```mongo```
+* ```mongo```
 
 * API Key --------add info
 
