@@ -1,9 +1,13 @@
 import "./CompanyCard.scss";
+import { Card, Image } from "semantic-ui-react"; ///istrinti jei nenaudosim semantic ui react
 
 const CompanyCard = ({ onCompanySelect, company }) => {
   return (
     <div className="ui stackable cards">
       <div className="ui fluid card">
+        <div className="ui centered tiny image">
+          <img src={company.logo}></img>
+        </div>
         <div className="content">
           <a onClick={() => onCompanySelect(company)} className="header">
             {company.name}

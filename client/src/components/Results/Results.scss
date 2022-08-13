@@ -3,10 +3,9 @@
   margin: 25px;
   grid-template-columns: repeat(
     auto-fill,
-    minmax(250px, 1fr)
+    minmax(275px, 1fr)
   ); /* creates a set number of columns, auto-fill-automatically identifies how many columns insert. means that each one of those different columns is going to be at minimum 250 pixels wide and 1fr means basically a maximum allocation of space. In this context means that for every column that we create, we want them to all be equally sized. */
   grid-gap: 10px; /* adds gap between columns */
-  grid-auto-rows: 150px; /*how tall grid cell will be*/
 }
 
 .no-results {

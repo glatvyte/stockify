@@ -28,23 +28,21 @@ function Filter({ onTermSubmit, onInputValueChange }) {
   };
 
   return (
-    <div>
+    <div className="search-bar-container">
       {!error ? null : renderError()}
-      <div className="search-bar-container">
-        <form onSubmit={onSubmit}>
-          <div className="ui input action container">
-            <input
-              type="text"
-              value={term}
-              onChange={onInputChange}
-              placeholder="Search by company stock symbol..."
-              name="keyword"
-              className="search-bar"
-            />
-            <button className="ui button blue">Search</button>
-          </div>
-        </form>
-      </div>
+      <form onSubmit={onSubmit}>
+        <div className="ui input action container">
+          <input
+            type="text"
+            value={term}
+            onChange={onInputChange}
+            placeholder="Search by company stock symbol..."
+            name="keyword"
+            className="search-bar"
+          />
+          <button className="ui button blue">Search</button>
+        </div>
+      </form>
     </div>
   );
 }
