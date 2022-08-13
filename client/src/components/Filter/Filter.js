@@ -34,12 +34,12 @@ function Filter({ onTermSubmit, onInputValueChange }) {
         <form onSubmit={onSubmit}>
           <div>
             {/* <label className="search-bar-label">{Strings.searchBarLabel}</label> */}
-            <div className="ui input action container search-bar">
+            <div className="ui input action container">
               <input
                 type="text"
                 value={term.toUpperCase()}
                 onChange={onInputChange}
-                placeholder="Enter your keywords here..."
+                placeholder="Search by company stock symbol..."
                 name="keyword"
                 className="search-bar"
               />

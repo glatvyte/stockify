@@ -7,6 +7,7 @@ import {
   YAxis,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 import SemanticDatepicker from "react-semantic-ui-datepickers";
 import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
@@ -31,20 +32,20 @@ const StockChart = ({
 
   const renderLineChart = () => {
     return (
-      <LineChart
-        width={800}
-        height={400}
-        data={transformData(stockCandles)}
-        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="timestamp" />
-        <YAxis type="number" allowDecimals={true} allowDataOverflow={true} />
-        <Tooltip />
-        <Legend />
-        <Line type="monotone" dataKey="open" stroke="blue" dot={false} />
-        <Line type="monotone" dataKey="close" stroke="gray" dot={false} />
-      </LineChart>
+      <ResponsiveContainer width="90%" height={400}>
+        <LineChart
+          data={transformData(stockCandles)}
+          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="timestamp" />
+          <YAxis type="number" allowDecimals={true} allowDataOverflow={true} />
+          <Tooltip />
+          <Legend />
+          <Line type="monotone" dataKey="open" stroke="blue" dot={false} />
+          <Line type="monotone" dataKey="close" stroke="gray" dot={false} />
+        </LineChart>
+      </ResponsiveContainer>
     );
   };
 

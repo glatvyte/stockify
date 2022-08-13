@@ -19,7 +19,11 @@ app.use(express.json());
 app.post("/selectedCompany", async (req, res) => {
   const viewedCompany = new ViewedCompany(req.body);
   await viewedCompany.save();
-  res.send("Company name and stock price history logged");
+  res.send(
+    `Stock history for ${
+      req.body.name
+    } was logged to Mongo DB: ${JSON.stringify(req.body.stockHistory)}`
+  );
 });
 
 app.listen(3001, () => {
