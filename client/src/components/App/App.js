@@ -51,7 +51,6 @@ const App = () => {
         }
       );
   };
-  ////////////////////
 
   const onCompanySelect = (company) => {
     console.log("onCompanySelect callinasi, tikrinsim ar empty");

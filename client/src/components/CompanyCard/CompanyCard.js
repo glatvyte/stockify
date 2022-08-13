@@ -3,9 +3,11 @@ import "./CompanyCard.css";
 const CompanyCard = ({ onCompanySelect, company }) => {
   return (
     <div className="ui stackable cards">
-      <div onClick={() => onCompanySelect(company)} className="ui fluid card">
+      <div className="ui fluid card">
         <div className="content">
-          <div className="header">{company.name}</div>
+          <a onClick={() => onCompanySelect(company)} className="header">
+            {company.name}
+          </a>
           <div className="description left aligned">
             <p>
               Country: {company.country}
