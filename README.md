@@ -18,13 +18,17 @@ Deployed with Netlify:   Deployment features front end features only. In order t
 ## Description
 This project includes:
 #### Front-end 
-- Search field to search company by its' symbol, e.g. AAPL (where AAPL = Apple Inc.);
-- Ability to choose searched company by clicking on the company name and look into stock price history diagram. Default date range is set to 7 days but user can change it using a date picker;
-- Search input has a validation to allow only letters including space, up to 35 characters;
-- Error message for invalid input field apears in red above the input field;
-- Search result is listed as a tile below with the company profile data: *name*, *country*, *currency*, *web URL*;
+* Search field to search company by its' symbol, e.g. AAPL (where AAPL = Apple Inc.);
+* Ability to choose searched company by clicking on the company name and look into stock price history diagram. Default date range is set to 7 days but user can change it using a date picker;
+* Search input has a validation to allow only letters including space, up to 35 characters;
+* Error message for invalid input field apears in red above the input field;
+* Search result is listed as a tile below with the company profile data: *name*, *country*, *currency*, *web URL*;
 #### Back-end 
-- Created Node.js application to log user' actions such as 1) *a name of selected company* and 2) *company stock price history for a selected date range* into a console and save it into a **MongoDB**.
+* Created Node.js application to log user' actions such as 1) *a name of selected company* and 2) *company stock price history for a selected date range* into a console and save it into a **MongoDB**.
+
+#### Testing
+* Some components are covered with unit tests.
+
 
 	
 ## Technology Stack
@@ -64,7 +68,7 @@ In order to launch the MongoDB you need to have [MongoDB](https://www.mongodb.co
 In a separate terminal window: <br/>
 * ```mongo```
 
-* API Key --------add info
+
 
 
 
