@@ -36,17 +36,15 @@ const App = () => {
     }
   };
 
-  /////////////////////////
-  // const selectedCompanyLogger = async ({ penis }) => {
-  const selectedCompanyLogger = async (company) => {
-    console.log("selectedCompanyLogger is called");
+  const selectedCompanyLogger = async (company, stockHistory) => {
     await axios
       .post(`${Strings.loggerApiUrl}/selectedCompany`, {
         name: company.name,
+        stockHistory: stockHistory,
       })
       .then(
-        () => {
-          console.log("Company name and stock price history logged");
+        (res) => {
+          console.log(res.data);
         },
         (error) => {
           console.log(error);
@@ -58,10 +56,6 @@ const App = () => {
   const onCompanySelect = (company) => {
     console.log("onCompanySelect callinasi, tikrinsim ar empty");
     if (!isEmptyObject(company)) {
-      //logger
-      selectedCompanyLogger(company);
-      ////////
-      console.log("its full");
       setSelectedCompany(company);
       finnhubClient.stockCandles(
         company.ticker,
@@ -71,7 +65,7 @@ const App = () => {
         (error, data, response) => {
           console.log(data);
           //LOGIKA KAI NIEKO NEGAUNAM / ERROR HANDLINIMAS
-          //logger
+          selectedCompanyLogger(company, data);
           setStockCandles(data);
         }
       );

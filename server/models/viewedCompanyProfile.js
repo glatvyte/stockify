@@ -5,10 +5,10 @@ const selectedCompanySchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // stockHistory: {
-  // type: Array,
-  //   required: true,
-  // },
+  stockHistory: {
+    type: Object,
+    required: true,
+  },
 });
 
 const ViewedCompany = mongoose.model("ViewedCompany", selectedCompanySchema);

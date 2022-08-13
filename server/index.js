@@ -1,7 +1,7 @@
-const cors = require("cors");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 const ViewedCompany = require("./models/viewedCompanyProfile");
 
 mongoose
@@ -17,8 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.post("/selectedCompany", async (req, res) => {
-  const viewedCompanyProfile = new ViewedCompany(req.body);
-  await viewedCompanyProfile.save();
+  const viewedCompany = new ViewedCompany(req.body);
+  await viewedCompany.save();
+  res.send("Company name and stock price history logged");
 });
 
 app.listen(3001, () => {
