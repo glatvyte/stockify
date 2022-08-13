@@ -11,7 +11,7 @@ import {
 } from "recharts";
 import SemanticDatepicker from "react-semantic-ui-datepickers";
 import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
-import "./StockChart.css";
+import "./StockChart.scss";
 
 const StockChart = ({
   stockCandles,
@@ -50,14 +50,16 @@ const StockChart = ({
   };
 
   return ReactDOM.createPortal(
-    <div className="ui dimmer modals visible active popup-container">
+    <div className="ui dimmer modals visible active">
       <div
         onClick={(e) => e.stopPropagation()}
         className="ui standart modal visible active"
       >
         <div className="header">
           {selectedCompany.name} ({selectedCompany.ticker})
-          <i class="close icon"></i>
+          <button onClick={onModalClose} className="ui button">
+            <i id="close-icon" class="close icon"></i>
+          </button>
         </div>
         <div className="stock-container">
           <SemanticDatepicker
@@ -70,11 +72,6 @@ const StockChart = ({
           />
         </div>
         {renderLineChart()}
-        <div className="actions">
-          <button onClick={onModalClose} className="ui button negative">
-            Close
-          </button>
-        </div>
       </div>
     </div>,
     document.querySelector("#modal")

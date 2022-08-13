@@ -1,0 +1,16 @@
+.visible.active {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    button {
+      padding: 10px;
+      #close-icon {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.ui.icon.input {
+  width: 220px;
+}
