@@ -1,6 +1,11 @@
 .popup-container {
   display: flex;
-  position: fixed !important;
+  position: fixed;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .ui.icon.input {

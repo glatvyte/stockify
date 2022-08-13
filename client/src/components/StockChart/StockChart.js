@@ -57,6 +57,7 @@ const StockChart = ({
       >
         <div className="header">
           {selectedCompany.name} ({selectedCompany.ticker})
+          <i class="close icon"></i>
         </div>
         <div className="stock-container">
           <SemanticDatepicker

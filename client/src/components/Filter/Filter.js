@@ -18,7 +18,7 @@ function Filter({ onTermSubmit, onInputValueChange }) {
     } else if (e.target.value.length > 35) {
       setError("Please use less than 35 characters.");
     } else {
-      setTerm(e.target.value);
+      setTerm(e.target.value.toUpperCase());
       setError("");
     }
   };
@@ -32,19 +32,16 @@ function Filter({ onTermSubmit, onInputValueChange }) {
       {!error ? null : renderError()}
       <div className="search-bar-container">
         <form onSubmit={onSubmit}>
-          <div>
-            {/* <label className="search-bar-label">{Strings.searchBarLabel}</label> */}
-            <div className="ui input action container">
-              <input
-                type="text"
-                value={term.toUpperCase()}
-                onChange={onInputChange}
-                placeholder="Search by company stock symbol..."
-                name="keyword"
-                className="search-bar"
-              />
-              <button className="ui button blue">Search</button>
-            </div>
+          <div className="ui input action container">
+            <input
+              type="text"
+              value={term}
+              onChange={onInputChange}
+              placeholder="Search by company stock symbol..."
+              name="keyword"
+              className="search-bar"
+            />
+            <button className="ui button blue">Search</button>
           </div>
         </form>
       </div>

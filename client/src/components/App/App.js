@@ -6,6 +6,7 @@ import Results from "../Results/Results";
 import StockChart from "../StockChart/StockChart";
 import mockedCompanyData from "../../utils/mockData";
 import Strings from "../../utils/strings";
+import isEmptyObject from "../../utils/helpers";
 
 import "./App.css";
 
@@ -71,10 +72,6 @@ const App = () => {
     }
   };
 
-  const isEmptyObject = (obj) => {
-    return Object.keys(obj).length === 0 && obj.constructor === Object;
-  };
-
   const onModalClose = () => {
     setStockCandles({});
     setDateFrom(Math.floor((Date.now() - 7 * 24 * 60 * 60 * 1000) / 1000));
@@ -127,9 +124,13 @@ const App = () => {
   return (
     <div className="App">
       <Filter onInputValueChange={setInputValue} />
-      <Results companyList={companyList} onCompanySelect={onCompanySelect} />
+      <Results
+        companyList={companyList}
+        onCompanySelect={onCompanySelect}
+        term={inputValue}
+      />
       {renderStockChart()}
-      <button onClick={showMockData} className="ui button red">
+      <button onClick={showMockData} className="ui button green">
         Mock Data
       </button>
     </div>
