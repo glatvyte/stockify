@@ -43,6 +43,10 @@ Stockify webpage is created with:
 
 	
 ## Running the project
+#### API Key access:
+* Get your own API Key [here](https://finnhub.io/docs/api/introduction);
+* Create ```.env``` file in root folder and place your API Key there.
+
 #### Front-end
 Inside the ```client``` directory: <br />
 
