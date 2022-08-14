@@ -6,7 +6,6 @@ import "./Results.scss";
 const Results = ({ companyList, onCompanySelect, term }) => {
   const renderCompanyList = companyList.map((company, i) => {
     return (
-      // card className added
       <div key={i} className="card">
         <CompanyCard onCompanySelect={onCompanySelect} company={company} />
       </div>

@@ -7,6 +7,7 @@ import StockChart from "../StockChart/StockChart";
 import mockedCompanyData from "../../utils/mockData";
 import Strings from "../../utils/strings";
 import isEmptyObject from "../../utils/helpers";
+import { format, addHours } from "date-fns";
 
 import "./App.scss";
 
@@ -24,13 +25,16 @@ const App = () => {
   );
   const [dateTo, setDateTo] = useState(Math.floor(Date.now() / 1000));
   const [stockCandles, setStockCandles] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const search = () => {
     if (inputValue) {
+      setLoading(true);
       finnhubClient.companyProfile2(
         { symbol: inputValue },
         (error, data, response) => {
           //ERROR HANDLE
+          setLoading(false);
           typeof data === Array ? setCompanyList(data) : setCompanyList([data]);
         }
       );
@@ -54,7 +58,6 @@ const App = () => {
   };
 
   const onCompanySelect = (company) => {
-    console.log("onCompanySelect callinasi, tikrinsim ar empty");
     if (!isEmptyObject(company)) {
       setSelectedCompany(company);
       finnhubClient.stockCandles(
@@ -63,10 +66,11 @@ const App = () => {
         dateFrom,
         dateTo,
         (error, data, response) => {
-          console.log(data);
           //LOGIKA KAI NIEKO NEGAUNAM / ERROR HANDLINIMAS
-          selectedCompanyLogger(company, data);
-          setStockCandles(data);
+          if (data.s !== "no_data") {
+            selectedCompanyLogger(company, data);
+            setStockCandles(data);
+          }
         }
       );
     }
@@ -94,10 +98,13 @@ const App = () => {
 
   const onChangeDates = (event, data) => {
     if (data.value.length === 2) {
-      setDateFrom(Math.floor(new Date(data.value[0]).getTime() / 1000));
-      setDateTo(Math.floor(new Date(data.value[1]).getTime() / 1000));
-      console.log(dateFrom, "dateFrom");
-      console.log(dateTo, "dateTo");
+      if (
+        format(data.value[0], "t") != dateFrom &&
+        format(data.value[1], "t") != dateTo
+      ) {
+        setDateFrom(format(addHours(data.value[0], 4), "t"));
+        setDateTo(format(addHours(data.value[1], 4), "t"));
+      }
     }
   };
 
@@ -115,15 +122,9 @@ const App = () => {
     setCompanyList(mockedCompanyData);
   };
 
-  // console.log(
-  //   "Default 7 days ago: ",
-  //   Math.floor((Date.now() - 7 * 24 * 60 * 60 * 1000) / 1000),
-  //   new Date(Math.floor((Date.now() - 7 * 24 * 60 * 60 * 1000) / 1000) * 1000)
-  // );
-  // console.log("Default now: ", Math.floor(Date.now() / 1000), new Date());
   return (
     <div className="App">
-      <Filter onInputValueChange={setInputValue} />
+      <Filter onInputValueChange={setInputValue} loading={loading} />
       <Results
         companyList={companyList}
         onCompanySelect={onCompanySelect}

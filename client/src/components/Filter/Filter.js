@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Filter.scss";
 
-function Filter({ onTermSubmit, onInputValueChange }) {
+function Filter({ onTermSubmit, onInputValueChange, loading }) {
   const [term, setTerm] = useState("");
   const [error, setError] = useState("");
 
@@ -39,8 +39,13 @@ function Filter({ onTermSubmit, onInputValueChange }) {
             placeholder="Search by company stock symbol..."
             name="keyword"
             className="search-bar"
+            autoComplete="off" //nuimti po demo filmuko
           />
-          <button className="ui button blue">Search</button>
+          <button
+            className={`ui button blue ${loading === true ? "loading" : ""}`}
+          >
+            Search
+          </button>
         </div>
       </form>
     </div>

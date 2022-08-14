@@ -1,9 +1,17 @@
+import Strings from "../../utils/strings";
 import "./CompanyCard.scss";
 
 const CompanyCard = ({ onCompanySelect, company }) => {
   return (
     <div className="ui stackable cards">
       <div className="ui fluid card">
+        <div
+          className="ui icon"
+          data-tooltip={Strings.tooltipText}
+          data-position="bottom center"
+        >
+          <i className="grey info icon link"></i>
+        </div>
         <div className="ui centered tiny image">
           <img
             alt="company logo"
