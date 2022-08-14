@@ -15,7 +15,7 @@ const Results = ({ companyList, onCompanySelect, term }) => {
 
   if (companyList.length > 0 && isEmptyObject(companyList[0])) {
     return (
-      <div class="no-results">{`We couldn't find any results for "${term}".`}</div>
+      <div className="no-results">{`We couldn't find any results for "${term}".`}</div>
     );
   } else {
     return (

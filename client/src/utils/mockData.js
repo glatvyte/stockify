@@ -49,7 +49,7 @@ const mockedCompanyData = [
   },
   {
     ticker: "UNH",
-    logo: "https://static.finnhub.io/logo/91f38836-80ec-11ea-a5be-00000000092a.png",
+    // logo: "https://static.finnhub.io/logo/91f38836-80ec-11ea-a5be-00000000092a.png", //to show 'no-image-icon.jog' image because some companies don't have logo
     name: "UnitedHealth Group Inc",
     country: "US",
     currency: "USD",

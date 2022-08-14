@@ -58,7 +58,7 @@ const StockChart = ({
         <div className="header">
           {selectedCompany.name} ({selectedCompany.ticker})
           <button onClick={onModalClose} className="ui button">
-            <i id="close-icon" class="close icon"></i>
+            <i id="close-icon" className="close icon"></i>
           </button>
         </div>
         <div className="stock-container">
