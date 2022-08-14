@@ -126,7 +126,7 @@ const App = () => {
         term={inputValue}
       />
       {renderStockChart()}
-      <button onClick={showMockData} className="ui button green">
+      <button onClick={showMockData} className="ui button teal">
         Mock Data
       </button>
     </div>

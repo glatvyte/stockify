@@ -31,7 +31,7 @@ function Filter({ onTermSubmit, onInputValueChange, loading }) {
     <div className="search-bar-container">
       {!error ? null : renderError()}
       <form onSubmit={onSubmit}>
-        <div className={`ui input action container ${!error ? null : "error"}`}>
+        <div className={`ui input action container ${!error ? "" : "error"}`}>
           <input
             type="text"
             value={term}
