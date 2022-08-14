@@ -86,3 +86,9 @@ In order to launch the MongoDB you need to have [MongoDB](https://www.mongodb.co
 In a separate terminal window: <br/>
 
 - `mongo`
+
+#### Tests
+
+In order to perform tests go to the `client` directory: <br />
+
+- `npm test` <br />
