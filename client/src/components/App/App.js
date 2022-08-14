@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import * as finnhub from "finnhub";
+import finnhubClient from "../../finnhub-api/finnhub";
 import Filter from "../Filter/Filter";
 import Results from "../Results/Results";
 import StockChart from "../StockChart/StockChart";
@@ -10,11 +10,6 @@ import isEmptyObject from "../../utils/helpers";
 import { format, addHours } from "date-fns";
 
 import "./App.scss";
-
-const personalApiKey = process.env.REACT_APP_API_KEY;
-const api_key = finnhub.ApiClient.instance.authentications["api_key"];
-api_key.apiKey = personalApiKey;
-const finnhubClient = new finnhub.DefaultApi();
 
 const App = () => {
   const [inputValue, setInputValue] = useState("");
