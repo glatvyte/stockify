@@ -1,6 +1,5 @@
 import CompanyCard from "../CompanyCard/CompanyCard";
 import isEmptyObject from "../../utils/helpers";
-import Strings from "../../utils/strings";
 import "./Results.scss";
 
 const Results = ({ companyList, onCompanySelect, term }) => {

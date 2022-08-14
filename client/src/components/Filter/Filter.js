@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Strings from "../../utils/strings";
 import "./Filter.scss";
 
 function Filter({ onTermSubmit, onInputValueChange, loading }) {
@@ -14,9 +15,9 @@ function Filter({ onTermSubmit, onInputValueChange, loading }) {
   const onInputChange = (e) => {
     const re = /^[a-zA-Z\s]*$/g;
     if (!re.test(e.target.value)) {
-      setError("Only letters including space are allowed.");
+      setError(Strings.invalidSymbol);
     } else if (e.target.value.length > 35) {
-      setError("Please use less than 35 characters.");
+      setError(Strings.invalidLength);
     } else {
       setTerm(e.target.value.toUpperCase());
       setError("");
@@ -36,7 +37,7 @@ function Filter({ onTermSubmit, onInputValueChange, loading }) {
             type="text"
             value={term}
             onChange={onInputChange}
-            placeholder="Search by company stock symbol..."
+            placeholder={Strings.searchPlaceholder}
             name="keyword"
             className="search-bar"
           />
