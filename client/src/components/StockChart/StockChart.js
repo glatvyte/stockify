@@ -69,6 +69,7 @@ const StockChart = ({
             datePickerOnly={true}
             showToday={false}
             clearable={false}
+            maxDate={new Date()}
           />
         </div>
         {renderLineChart()}

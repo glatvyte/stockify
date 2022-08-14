@@ -1,12 +1,19 @@
 .card {
+  font-size: 1em;
+
+  .ui.fluid.card {
+    .content {
+      background: #e9edea;
+      .description {
+        a {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
   .image {
     margin: 10px;
     min-height: 80px;
-  }
-  .description {
-    a {
-      margin-left: 3px;
-    }
   }
   .ui.icon {
     position: absolute;

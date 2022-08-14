@@ -1,13 +1,14 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import finnhubClient from "../../finnhub-api/finnhub";
+import { format, addHours } from "date-fns";
+import axios from "axios";
+import toastr from "toastr";
 import Filter from "../Filter/Filter";
 import Results from "../Results/Results";
 import StockChart from "../StockChart/StockChart";
-import mockedCompanyData from "../../utils/mockData";
 import Strings from "../../utils/strings";
+import mockedCompanyData from "../../utils/mockData";
 import isEmptyObject from "../../utils/helpers";
-import { format, addHours } from "date-fns";
+import finnhubClient from "../../finnhub-api/finnhub";
 
 import "./App.scss";
 
@@ -25,14 +26,13 @@ const App = () => {
   const search = () => {
     if (inputValue) {
       setLoading(true);
-      finnhubClient.companyProfile2(
-        { symbol: inputValue },
-        (error, data, response) => {
-          //ERROR HANDLE
-          setLoading(false);
-          typeof data === Array ? setCompanyList(data) : setCompanyList([data]);
+      finnhubClient.companyProfile2({ symbol: inputValue }, (error, data) => {
+        if (error) {
+          toastr.error(Strings.apiFailure);
         }
-      );
+        setLoading(false);
+        typeof data === Array ? setCompanyList(data) : setCompanyList([data]);
+      });
     }
   };
 
@@ -61,7 +61,9 @@ const App = () => {
         dateFrom,
         dateTo,
         (error, data, response) => {
-          //LOGIKA KAI NIEKO NEGAUNAM / ERROR HANDLINIMAS
+          if (error) {
+            toastr.error(Strings.apiFailure);
+          }
           if (data.s !== "no_data") {
             selectedCompanyLogger(company, data);
             setStockCandles(data);

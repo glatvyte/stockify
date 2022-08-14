@@ -1,11 +1,11 @@
 const mockedCompanyData = [
   {
-    ticker: "IBM",
-    logo: "https://cdn.iconscout.com/icon/free/png-256/bee-189-439428.png",
-    name: "International Business Machines Corp",
+    ticker: "GME",
+    logo: "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/GME.png",
+    name: "GameStop Corp",
     country: "US",
     currency: "USD",
-    weburl: "https://www.ibm.com/",
+    weburl: "https://news.gamestop.com/",
   },
   {
     ticker: "AAPL",
@@ -45,16 +45,16 @@ const mockedCompanyData = [
     name: "Microsoft Corp",
     country: "US",
     currency: "USD",
-    weburl: "https://www.microsoft.com/en-us",
+    weburl: "https://www.microsoft.com/",
   },
   {
-    ticker: "UNH",
-    // logo: "https://static.finnhub.io/logo/91f38836-80ec-11ea-a5be-00000000092a.png", //to show 'no-image-icon.jog' image because some companies don't have logo
-    name: "UnitedHealth Group Inc",
+    ticker: "CLAR",
+    weburl: "https://www.claruscorp.com/",
+    name: "Clarus Corp",
     country: "US",
     currency: "USD",
-    weburl: "https://www.unitedhealthgroup.com/",
   },
+
   {
     ticker: "META",
     logo: "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/FB.png",
@@ -72,12 +72,12 @@ const mockedCompanyData = [
     weburl: "https://www.homedepot.com/",
   },
   {
-    ticker: "DIS",
-    logo: "https://static.finnhub.io/logo/ef50b4a2b263c847211b567a01edb702cae8b9ef46ca1f6856ca4432a70e9f52.png",
-    name: "Walt Disney Co",
+    ticker: "AMD",
+    logo: "https://static2.finnhub.io/file/publicdatany/finnhubimage/stock_logo/AMD_4295903297.jpeg",
+    name: "Advanced Micro Devices Inc",
     country: "US",
     currency: "USD",
-    weburl: "https://thewaltdisneycompany.com/",
+    weburl: "https://www.amd.com/en",
   },
   {
     ticker: "SOFI",

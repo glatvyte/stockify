@@ -39,7 +39,6 @@ function Filter({ onTermSubmit, onInputValueChange, loading }) {
             placeholder="Search by company stock symbol..."
             name="keyword"
             className="search-bar"
-            autoComplete="off" //nuimti po demo filmuko
           />
           <button
             className={`ui button blue ${loading === true ? "loading" : ""}`}
