@@ -19,6 +19,7 @@ In the task description, I was given two API points, one to get Company Profile 
 Of course, the code itself is written as if we could receive multiple results from the first endpoint.
 
 ## Webpage Demo
+![Demo](https://user-images.githubusercontent.com/97436827/184552294-283d45e6-cae8-46cc-885f-bc5dfb47b988.gif)
 
 ## Description
 
