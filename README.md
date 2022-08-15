@@ -2,7 +2,7 @@
 
 A webpage created using **"Finnhub" APIs** to search and see companies' **stock prices** and **their history in the diagram** while logging user actions in the **backend** service and saving it into **MongoDB**.
 
-Deployed with **\_\_\_**: Deployment features front end features only. In order to review the back end part - please download the repo and use the commmands described in [Running the project](#running-the-project) section to set it up on your local machine.
+Deployed in AWS: http://stockify-ibm-task.s3-website.eu-west-2.amazonaws.com/. Deployment features front end features only. In order to review the back end part - please download the repo and use the commmands described in [Running the project](#running-the-project) section to set it up on your local machine.
 
 ## Table of contents
 
@@ -19,6 +19,7 @@ In the task description, I was given two API points, one to get Company Profile 
 Of course, the code itself is written as if we could receive multiple results from the first endpoint.
 
 ## Webpage Demo
+
 ![Demo](https://user-images.githubusercontent.com/97436827/184552294-283d45e6-cae8-46cc-885f-bc5dfb47b988.gif)
 
 ## Description
