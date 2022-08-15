@@ -20,8 +20,6 @@ const StockChart = ({
   dates,
   selectedCompany,
 }) => {
-  console.log(dates);
-
   const transformData = (data) => {
     return data.c.map((item, index) => ({
       close: Number(item).toFixed(2),

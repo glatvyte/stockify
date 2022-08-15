@@ -67,7 +67,9 @@ Stockify webpage is created with:
 #### API Key access:
 
 - Get your own API Key [here](https://finnhub.io/docs/api/introduction);
-- Create `.env` file in `client` directory and place your API Key there.
+- Create `.env` file in `client` directory and place your API Key there. The .env file should look like this:<br />
+  `REACT_APP_API_KEY = 'xxxxxxxxxxxx'`<br />
+  `GENERATE_SOURCEMAP=false`
 
 #### Front-end
 
