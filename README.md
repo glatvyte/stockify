@@ -2,21 +2,13 @@
 
 A webpage created using **"Finnhub" APIs** to search and see companies' **stock prices** and **their history in the diagram** while logging user actions in the **backend** service and saving it into **MongoDB**.
 
-Deployed in AWS: http://stockify-ibm-task.s3-website.eu-west-2.amazonaws.com/. Deployment features front end features only. In order to review the back end part - please download the repo and use the commmands described in [Running the project](#running-the-project) section to set it up on your local machine.
-
 ## Table of contents
 
-- [Disclaimer](#disclaimer)
 - [Webpage Demo](#webpage-demo)
 - [Description](#description)
 - [Technology Stack](#technology-stack)
 - [Dependencies](#dependencies)
 - [Running the project](#running-the-project)
-
-## :bangbang: Disclaimer
-
-In the task description, I was given two API points, one to get Company Profile to fill the company tile/card, and second - to get the Stock Candles. The first endpoint is meant to be used to get a company profile by using a precise company ticker, and not a broad search. I could have used Symbol Lookup endpoint, which actually makes a broad search, but the data that we receive is not enough to populate the company cards, so in order to fullfill the requirement of the task, after one Symbol Lookup, I would have had to make, for example, 40 additional calls to get the Company Profile for each of the Symbol Lookup results in order to populate the cards/tiles, which is not really viable with a free api_key. I understand that you want to check the grid functionality, so I have added a button `Mock Data` on bottom left, so you could mock the data as if we have received multiple companies to choose from.  
-Of course, the code itself is written as if we could receive multiple results from the first endpoint.
 
 ## Webpage Demo
 
